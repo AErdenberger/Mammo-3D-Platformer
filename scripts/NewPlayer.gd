@@ -1,7 +1,11 @@
 extends CharacterBody3D
 
+@export var view: Node3D
+
 var move_speed = 250
 var move_velocity: Vector3
+
+var gravity : float = 0.0
 
 func _physics_process(delta):
 	handle_controls(delta)
@@ -15,6 +19,10 @@ func _physics_process(delta):
 	
 	velocity = applied_velocity
 	move_and_slide()
+	
+	if position.y < -10:
+		get_tree().reload_current_scene()
+
 	pass
 	
 func handle_controls(delta):
@@ -23,6 +31,8 @@ func handle_controls(delta):
 	#Get axis input by specifying two actions, one negative and one positive.
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
+	
+	input = input.rotated(Vector3.UP, view.rotation.y).normalized()
 	
 	move_velocity = input * move_speed * delta
 	pass
