@@ -9,6 +9,7 @@ var gravity : float = 0.0
 
 func _physics_process(delta):
 	handle_controls(delta)
+	handle_gravity(delta)
 	
 	#Movement
 	var applied_velocity : Vector3
@@ -36,3 +37,9 @@ func handle_controls(delta):
 	
 	move_velocity = input * move_speed * delta
 	pass
+	
+func handle_gravity(delta):
+	gravity += 25 * delta
+	
+	if gravity > 0 and is_on_floor():
+		gravity = 0
