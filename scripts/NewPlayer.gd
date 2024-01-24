@@ -41,6 +41,11 @@ func _physics_process(delta):
 		model.scale = Vector3(1.25, 0.75, 1.25)
 		
 	previously_floored = is_on_floor()
+	
+	if Vector2(velocity.z, velocity.x).length() > 0:
+		rotation_direction = Vector2(velocity.z, velocity.x).angle()
+		
+	rotation.y = lerp_angle(rotation.y, rotation_direction, delta * 10)
 
 	pass
 	
@@ -56,6 +61,10 @@ func handle_controls(delta):
 	move_velocity = input * move_speed * delta
 	
 	if Input.is_action_just_pressed("jump"):
+		if(jump_double):
+			gravity = -jump_strength
+			jump_double = false
+			model.scale = Vector3(0.5, 1.5, 0.5)
 		if(jump_single): 
 			jump()
 		
