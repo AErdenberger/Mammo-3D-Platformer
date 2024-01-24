@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnwcss0rtvhb"]
+[gd_scene load_steps=4 format=3 uid="uid://cnwcss0rtvhb"]
 
 [ext_resource type="PackedScene" uid="uid://devuygs2nhce5" path="res://new_features/Mammo-3D-Platformer/objects/Big_Platform.tscn" id="1_xnmbx"]
-[ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/NewPlayer.gd" id="2_8hftn"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/Camera.gd" id="2_hr6c3"]
-[ext_resource type="PackedScene" uid="uid://xy8rvnjp22n5" path="res://models/character.glb" id="3_y6g6j"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ls8l3"]
-height = 1.87431
+[ext_resource type="PackedScene" uid="uid://4q3cf15xdesn" path="res://new_features/Mammo-3D-Platformer/objects/new_player.tscn" id="3_22apf"]
 
 [node name="MainGame" type="Node3D"]
 
@@ -19,13 +15,5 @@ target = NodePath("../NewPlayer")
 [node name="Camera3D" type="Camera3D" parent="View"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48861, 8.84115)
 
-[node name="NewPlayer" type="CharacterBody3D" parent="." node_paths=PackedStringArray("view")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.660751, 0)
-script = ExtResource("2_8hftn")
+[node name="NewPlayer" parent="." node_paths=PackedStringArray("view") instance=ExtResource("3_22apf")]
 view = NodePath("../View")
-
-[node name="character" parent="NewPlayer" instance=ExtResource("3_y6g6j")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NewPlayer"]
-transform = Transform3D(1.1947, 0, 0, 0, 0.641891, 0, 0, 0, 0.632255, 0, 0.583946, 0)
-shape = SubResource("CapsuleShape3D_ls8l3")
