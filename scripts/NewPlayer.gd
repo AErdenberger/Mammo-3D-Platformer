@@ -34,6 +34,13 @@ func _physics_process(delta):
 	
 	if position.y < -10:
 		get_tree().reload_current_scene()
+		
+	model.scale = model.scale.lerp(Vector3(1,1,1), delta * 10)
+	
+	if is_on_floor() and gravity > 2 and !previously_floored:
+		model.scale = Vector3(1.25, 0.75, 1.25)
+		
+	previously_floored = is_on_floor()
 
 	pass
 	
@@ -57,6 +64,8 @@ func handle_controls(delta):
 func jump():
 	
 	gravity = -jump_strength
+	
+	model.scale = Vector3(0.5, 1.5, 0.5)
 	
 	jump_single = false
 	jump_double = true
