@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://4q3cf15xdesn"]
+[gd_scene load_steps=32 format=3 uid="uid://4q3cf15xdesn"]
 
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/NewPlayer.gd" id="1_ysvoq"]
 [ext_resource type="Texture2D" uid="uid://0odt7cvj574e" path="res://models/Textures/colormap.png" id="2_7801a"]
@@ -779,15 +779,26 @@ _data = {
 "CustomWalk": SubResource("Animation_let8v")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k4pt8"]
+animation = &"CustomAnimations/CustomWalk"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_il2lx"]
 animation = &"CustomAnimations/CustomIdle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k4qcq"]
+filter_enabled = true
+filters = ["character2/root/leg-left:rotation", "character2/root/leg-right:rotation"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gwps6"]
 graph_offset = Vector2(0, -52)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_il2lx")
 nodes/Animation/position = Vector2(100, 20)
-nodes/output/position = Vector2(500, 60)
-node_connections = [&"output", 0, &"Animation"]
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_k4pt8")
+"nodes/Animation 2/position" = Vector2(100, 140)
+nodes/WalkBlend/node = SubResource("AnimationNodeBlend2_k4qcq")
+nodes/WalkBlend/position = Vector2(420, 20)
+nodes/output/position = Vector2(580, 40)
+node_connections = [&"WalkBlend", 0, &"Animation", &"WalkBlend", 1, &"Animation 2", &"output", 0, &"WalkBlend"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ls8l3"]
 radius = 0.52737
@@ -847,6 +858,7 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeBlendTree_gwps6")
 anim_player = NodePath("../AnimationPlayer")
+parameters/WalkBlend/blend_amount = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.1947, 0, 0, 0, 0.641891, 0, 0, 0, 0.632255, 0, 0.583946, 0)
