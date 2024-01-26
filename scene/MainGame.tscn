@@ -6,7 +6,33 @@
 
 [node name="MainGame" type="Node3D"]
 
-[node name="BigPlatform" parent="." instance=ExtResource("1_xnmbx")]
+[node name="Initial Platform" type="Node3D" parent="."]
+
+[node name="BigPlatform" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+
+[node name="BigPlatform2" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="BigPlatform3" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="BigPlatform4" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="BigPlatform5" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="BigPlatform6" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="BigPlatform7" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="BigPlatform8" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="BigPlatform9" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_hr6c3")
