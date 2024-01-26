@@ -22,10 +22,12 @@ var jump_double = true
 var move_joystick : Vector3
 
 @onready var model = $character
+@onready var animation = $character/AnimationPlayer
 
 func _physics_process(delta):
 	handle_controls(delta)
 	handle_gravity(delta)
+	handle_effects()
 	
 	#Movement
 	var applied_velocity : Vector3
@@ -55,6 +57,16 @@ func _physics_process(delta):
 
 	pass
 	
+func handle_effects():
+	if is_on_floor():
+		#This changes negative velocity to positive so we can accurately check if the player is moving
+		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
+			animation.play("CustomAnimations/CustomWalk", 0.5)
+		else:
+			animation.play("CustomAnimations/CustomIdle", 0.5)
+	else:
+		animation.play("CustomAnimations/CustomJump", 0.5)
+
 func handle_controls(delta):
 	var input := Vector3.ZERO
 	
