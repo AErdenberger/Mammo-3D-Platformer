@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+#Signals are a way for objects to communicate with each other without relying on direct references
+signal coin_collected
+
 @export var view: Node3D
 @export  var coins := 0
 
@@ -88,3 +91,6 @@ func handle_gravity(delta):
 		
 func collect_coins():
 	coins += 1
+	
+	#This is going to make other code referencing this signal fire
+	coin_collected.emit(coins)
