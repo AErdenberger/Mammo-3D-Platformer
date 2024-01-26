@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var view: Node3D
+@export  var coins := 0
 
 var move_speed = 250
 var move_velocity: Vector3
@@ -84,3 +85,6 @@ func handle_gravity(delta):
 	if gravity > 0 and is_on_floor():
 		gravity = 0
 		jump_single = true
+		
+func collect_coins():
+	coins += 1
