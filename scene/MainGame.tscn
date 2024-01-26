@@ -1,19 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnwcss0rtvhb"]
+[gd_scene load_steps=13 format=3 uid="uid://cnwcss0rtvhb"]
 
 [ext_resource type="PackedScene" uid="uid://devuygs2nhce5" path="res://new_features/Mammo-3D-Platformer/objects/Big_Platform.tscn" id="1_xnmbx"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/Camera.gd" id="2_hr6c3"]
 [ext_resource type="PackedScene" uid="uid://4q3cf15xdesn" path="res://new_features/Mammo-3D-Platformer/objects/new_player.tscn" id="3_22apf"]
 [ext_resource type="PackedScene" uid="uid://dl0eg4uih3c73" path="res://new_features/Mammo-3D-Platformer/objects/coin.tscn" id="4_eilxa"]
+[ext_resource type="LabelSettings" uid="uid://dklnvibo33llv" path="res://new_features/Mammo-3D-Platformer/label_settings/CoinLabelSettings.tres" id="6_3vayy"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/HUD.gd" id="6_bttjt"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/Movement.gd" id="6_chnmx"]
 [ext_resource type="Texture2D" uid="uid://cr3s45p8o0u7k" path="res://new_features/Mammo-3D-Platformer/Sprites/flatDark00.png" id="7_56oki"]
 [ext_resource type="Texture2D" uid="uid://cnq0046qwjuiy" path="res://new_features/Mammo-3D-Platformer/Sprites/flatLight05.png" id="8_6wkef"]
 [ext_resource type="Texture2D" uid="uid://em4bytrww7ct" path="res://new_features/Mammo-3D-Platformer/Sprites/flatLight24.png" id="9_hc5fe"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_70r7u"]
-font_size = 48
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="11_25xka"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vinsd"]
 
@@ -63,11 +60,12 @@ view = NodePath("../View")
 script = ExtResource("6_bttjt")
 
 [node name="CoinCounter" type="Label" parent="HUD"]
-offset_left = 26.0
-offset_right = 66.0
-offset_bottom = 67.0
+offset_left = 119.0
+offset_top = 15.0
+offset_right = 159.0
+offset_bottom = 82.0
 text = "0"
-label_settings = SubResource("LabelSettings_70r7u")
+label_settings = ExtResource("6_3vayy")
 
 [node name="Movement" type="Area2D" parent="HUD"]
 position = Vector2(100, 650)
@@ -89,6 +87,22 @@ position = Vector2(1138, 602)
 texture_normal = ExtResource("9_hc5fe")
 texture_pressed = ExtResource("9_hc5fe")
 action = "jump"
+
+[node name="Label" type="Label" parent="HUD"]
+offset_left = 79.0
+offset_top = 15.0
+offset_right = 119.0
+offset_bottom = 71.0
+text = "x"
+label_settings = ExtResource("6_3vayy")
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 137.0
+offset_bottom = 135.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_25xka")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.34202, -0.719846, 0.604023, 0, 0.642788, 0.766044, -0.939693, 0.262003, -0.219846, 6.87003, 7.88199, -10.7478)

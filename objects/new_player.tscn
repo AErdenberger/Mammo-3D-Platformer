@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://4q3cf15xdesn"]
+[gd_scene load_steps=9 format=3 uid="uid://4q3cf15xdesn"]
 
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/NewPlayer.gd" id="1_ysvoq"]
 [ext_resource type="PackedScene" uid="uid://xy8rvnjp22n5" path="res://models/character.glb" id="2_b6yvd"]
@@ -6,6 +6,26 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ls8l3"]
 radius = 0.52737
 height = 2.01516
+
+[sub_resource type="Animation" id="Animation_efwgy"]
+resource_name = "CustomIdle"
+
+[sub_resource type="Animation" id="Animation_kxifc"]
+resource_name = "CustomJump"
+
+[sub_resource type="Animation" id="Animation_jhfbf"]
+resource_name = "CustomWalk"
+
+[sub_resource type="Animation" id="Animation_6vd4h"]
+resource_name = "CustomArmWalk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrwua"]
+_data = {
+"CustomArmWalk": SubResource("Animation_6vd4h"),
+"CustomIdle": SubResource("Animation_efwgy"),
+"CustomJump": SubResource("Animation_kxifc"),
+"CustomWalk": SubResource("Animation_jhfbf")
+}
 
 [node name="NewPlayer" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.660751, 0)
@@ -16,3 +36,8 @@ script = ExtResource("1_ysvoq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.1947, 0, 0, 0, 0.641891, 0, 0, 0, 0.632255, 0, 0.583946, 0)
 shape = SubResource("CapsuleShape3D_ls8l3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"CustomAnimations": SubResource("AnimationLibrary_qrwua")
+}
