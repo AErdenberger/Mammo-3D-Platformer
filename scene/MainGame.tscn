@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnwcss0rtvhb"]
+[gd_scene load_steps=7 format=3 uid="uid://cnwcss0rtvhb"]
 
 [ext_resource type="PackedScene" uid="uid://devuygs2nhce5" path="res://new_features/Mammo-3D-Platformer/objects/Big_Platform.tscn" id="1_xnmbx"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/Camera.gd" id="2_hr6c3"]
 [ext_resource type="PackedScene" uid="uid://4q3cf15xdesn" path="res://new_features/Mammo-3D-Platformer/objects/new_player.tscn" id="3_22apf"]
+[ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/NewCoin.gd" id="4_u5cf5"]
+[ext_resource type="PackedScene" uid="uid://e64a4omgpcs" path="res://models/coin.glb" id="5_nr6g0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e1jig"]
+radius = 1.0
 
 [node name="MainGame" type="Node3D"]
 
@@ -43,3 +48,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48861, 8.84115)
 
 [node name="NewPlayer" parent="." node_paths=PackedStringArray("view") instance=ExtResource("3_22apf")]
 view = NodePath("../View")
+
+[node name="Coin" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800987, 3.93143)
+script = ExtResource("4_u5cf5")
+
+[node name="mesh" parent="Coin" instance=ExtResource("5_nr6g0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Coin"]
+transform = Transform3D(0.127776, 0, 0, 0, 0.277595, 0, 0, 0, 0.292417, 0, 0.186084, 0)
+shape = SubResource("SphereShape3D_e1jig")
+
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
