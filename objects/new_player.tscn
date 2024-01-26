@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://4q3cf15xdesn"]
+[gd_scene load_steps=30 format=3 uid="uid://4q3cf15xdesn"]
 
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/NewPlayer.gd" id="1_ysvoq"]
 [ext_resource type="Texture2D" uid="uid://0odt7cvj574e" path="res://models/Textures/colormap.png" id="2_7801a"]
@@ -580,6 +580,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_0epus"]
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -587,10 +588,10 @@ tracks/0/path = NodePath("character2/root/torso/arm-left:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, -1.39626)]
+"values": [Vector3(0, 0, -1.39626), Vector3(0, 0, -1.39626)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -599,10 +600,10 @@ tracks/1/path = NodePath("character2/root/torso/arm-right:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 1.39626)]
+"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 1.39626)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -611,11 +612,109 @@ tracks/2/path = NodePath("character2/root/torso/antenna:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.253017, 0.5, 0.757292, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, -0.401426), Vector3(0, 0, 0), Vector3(0, 0, 0.401426), Vector3(0, 0, 0), Vector3(0, 0, -0.401426)]
 }
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("character2/root")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0.02375, 9.02389e-17)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("character2/root/leg-left")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.125, 0.17625, -0.02375)
+tracks/5/type = "position_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("character2/root/leg-right")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.125, 0.17625, -0.02375)
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("character2/root/torso")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -1.80478e-15, 0.17625, -0.02375)
+tracks/7/type = "position_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("character2/root/torso/arm-left")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.3, 0.175, 0)
+tracks/8/type = "position_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("character2/root/torso/arm-right")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.3, 0.1195, 0)
+tracks/9/type = "position_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("character2/root/torso/antenna")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0, 0.6, 0)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("character2/root")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("character2/root/leg-left")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0.214588, 0.127432, -0.028251, 0.967944)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("character2/root/leg-right")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, -0.214588, -0.127432, -0.028251, 0.967944)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("character2/root/torso")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, -0.0436194, 0, 0, 0.999048)
+tracks/14/type = "rotation_3d"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("character2/root/torso/antenna")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = PackedFloat32Array(0, 1, 0, 0, -0.199, 0.98, 0.25, 1, 0, 0, 0, -1, 0.5, 1, 0, 0, 0.199, 0.98, 0.75, 1, 0, 0, 0, 1, 1, 1, 0, 0, -0.199, 0.98)
+tracks/15/type = "rotation_3d"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("character2/root/torso/arm-right")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = PackedFloat32Array(0, 1, 0, 0, 0.642788, 0.766044)
+tracks/16/type = "rotation_3d"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("character2/root/torso/arm-left")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, 0, 0, -0.642788, 0.766044)
 
 [sub_resource type="Animation" id="Animation_let8v"]
 loop_mode = 1
@@ -680,6 +779,16 @@ _data = {
 "CustomWalk": SubResource("Animation_let8v")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_il2lx"]
+animation = &"CustomAnimations/CustomIdle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gwps6"]
+graph_offset = Vector2(0, -52)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_il2lx")
+nodes/Animation/position = Vector2(100, 20)
+nodes/output/position = Vector2(500, 60)
+node_connections = [&"output", 0, &"Animation"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ls8l3"]
 radius = 0.52737
 height = 2.01516
@@ -730,6 +839,14 @@ libraries = {
 "": SubResource("AnimationLibrary_f72tc"),
 "CustomAnimations": SubResource("AnimationLibrary_kebim")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="character"]
+libraries = {
+"": SubResource("AnimationLibrary_f72tc"),
+"CustomAnimations": SubResource("AnimationLibrary_kebim")
+}
+tree_root = SubResource("AnimationNodeBlendTree_gwps6")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.1947, 0, 0, 0, 0.641891, 0, 0, 0, 0.632255, 0, 0.583946, 0)
