@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnwcss0rtvhb"]
+[gd_scene load_steps=14 format=3 uid="uid://cnwcss0rtvhb"]
 
 [ext_resource type="PackedScene" uid="uid://devuygs2nhce5" path="res://new_features/Mammo-3D-Platformer/objects/Big_Platform.tscn" id="1_xnmbx"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/Camera.gd" id="2_hr6c3"]
@@ -13,6 +13,18 @@
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="11_25xka"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vinsd"]
+
+[sub_resource type="Environment" id="Environment_t8tqb"]
+background_mode = 1
+background_color = Color(0.592157, 0.811765, 0.913725, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.662745, 0.694118, 0.772549, 1)
+ambient_light_energy = 1.15
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 0.45
+ssao_intensity = 1.0
+ssao_power = 15.0
 
 [node name="MainGame" type="Node3D"]
 
@@ -107,6 +119,9 @@ texture = ExtResource("11_25xka")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.34202, -0.719846, 0.604023, 0, 0.642788, 0.766044, -0.939693, 0.262003, -0.219846, 6.87003, 7.88199, -10.7478)
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t8tqb")
 
 [connection signal="coin_collected" from="NewPlayer" to="HUD" method="_on_coin_collected"]
 [connection signal="move_dir" from="HUD/Movement" to="NewPlayer" method="_on_touch_move"]
