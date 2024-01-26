@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl0eg4uih3c73"]
+
+[ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/NewCoin.gd" id="1_43y1v"]
+[ext_resource type="PackedScene" uid="uid://e64a4omgpcs" path="res://models/coin.glb" id="2_woqdi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e1jig"]
+radius = 1.0
+
+[node name="Coin" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800987, 3.93143)
+script = ExtResource("1_43y1v")
+
+[node name="mesh" parent="." instance=ExtResource("2_woqdi")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.127776, 0, 0, 0, 0.277595, 0, 0, 0, 0.292417, 0, 0.186084, 0)
+shape = SubResource("SphereShape3D_e1jig")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -19,6 +19,8 @@ var previously_floored = false
 var jump_single = true
 var jump_double = true
 
+var move_joystick : Vector3
+
 @onready var model = $character
 
 func _physics_process(delta):
@@ -60,7 +62,10 @@ func handle_controls(delta):
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
 	
-	input = input.rotated(Vector3.UP, view.rotation.y).normalized()
+	if move_joystick == Vector3.ZERO:
+		input = input.rotated(Vector3.UP, view.rotation.y).normalized()
+	else:
+		input = move_joystick.rotated(Vector3.UP, view.rotation.y).normalized()
 	
 	move_velocity = input * move_speed * delta
 	
@@ -94,3 +99,7 @@ func collect_coins():
 	
 	#This is going to make other code referencing this signal fire
 	coin_collected.emit(coins)
+
+
+func _on_touch_move(dir):
+	move_joystick = dir
