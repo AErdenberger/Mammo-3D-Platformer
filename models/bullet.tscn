@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3x5gsci1cdlt"]
+
+[ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/bullet.gd" id="1_6d0pt"]
+[ext_resource type="PackedScene" uid="uid://cqsdnvwk6ihf5" path="res://new_features/Mammo-3D-Platformer/models/bullet.gltf" id="1_ay8ti"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5ho7o"]
+radius = 0.384188
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_6d0pt")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.280835, 0, 0, 0, 0.683214, 0, 0, 0, 0.321966, 0, 0.188669, 0)
+shape = SubResource("SphereShape3D_5ho7o")
+
+[node name="bullet" parent="RigidBody3D" instance=ExtResource("1_ay8ti")]

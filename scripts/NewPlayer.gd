@@ -3,8 +3,10 @@ extends CharacterBody3D
 #Signals are a way for objects to communicate with each other without relying on direct references
 signal coin_collected
 
-@export var view: Node3D
-@export  var coins := 0
+@export var view : Node3D
+@export var coins := 0
+@export var bullet : PackedScene
+@export var shoot_speed : float
 
 var move_speed = 250
 var move_velocity: Vector3
@@ -22,6 +24,7 @@ var jump_double = true
 var move_joystick : Vector3
 
 @onready var model = $character
+@onready var bullet_spawner = $character/BulletSpawner
 @onready var animation := $character/AnimationPlayer
 @onready var animation_tree := $character/AnimationTree
 
@@ -86,6 +89,13 @@ func handle_controls(delta):
 	
 	move_velocity = input * move_speed * delta
 	
+	if Input.is_action_just_pressed("shoot"):
+		var shot = bullet.instantiate()
+		owner.add_child(shot)
+		shot.global_position = bullet_spawner.global_position
+		var velocity_vector = (bullet_spawner.global_position - Vector3(global_position.x, bullet_spawner.global_position.y, global_position.z)).normalized()
+		shot.RB.linear_velocity = velocity_vector * shoot_speed
+		
 	if Input.is_action_just_pressed("jump"):
 		if(jump_double):
 			gravity = -jump_strength

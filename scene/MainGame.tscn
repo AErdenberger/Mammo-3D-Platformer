@@ -65,6 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48861, 8.84115)
 
 [node name="NewPlayer" parent="." node_paths=PackedStringArray("view") instance=ExtResource("3_22apf")]
 view = NodePath("../View")
+shoot_speed = 40.0
 
 [node name="Coin" parent="." instance=ExtResource("4_eilxa")]
 
