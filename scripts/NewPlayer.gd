@@ -95,6 +95,7 @@ func handle_controls(delta):
 		shot.global_position = bullet_spawner.global_position
 		var velocity_vector = (bullet_spawner.global_position - Vector3(global_position.x, bullet_spawner.global_position.y, global_position.z)).normalized()
 		shot.RB.linear_velocity = velocity_vector * shoot_speed
+		shot.look_at(shot.global_position + velocity_vector, Vector3.UP)
 		
 	if Input.is_action_just_pressed("jump"):
 		if(jump_double):
