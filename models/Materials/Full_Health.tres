@@ -1,3 +1,6 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://2ytcp6ohjh4o"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2ytcp6ohjh4o"]
+
+[ext_resource type="Texture2D" uid="uid://dbwbmy06gky6g" path="res://new_features/Mammo-3D-Platformer/models/FullHealth.png" id="1_pdtnj"]
 
 [resource]
+albedo_texture = ExtResource("1_pdtnj")
