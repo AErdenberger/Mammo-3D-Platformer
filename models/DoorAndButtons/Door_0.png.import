@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dht0iim6nne0u"
-path.s3tc="res://.godot/imported/Destructable wall_0.png-ef5c851d1415c2b26dd2abbc00962fef.s3tc.ctex"
+uid="uid://kffqygwthdq0"
+path.s3tc="res://.godot/imported/Door_0.png-7e15e1b01b5dc95208bb0d1d7d241f02.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://new_features/Mammo-3D-Platformer/models/Destructable wall_0.png"
-dest_files=["res://.godot/imported/Destructable wall_0.png-ef5c851d1415c2b26dd2abbc00962fef.s3tc.ctex"]
+source_file="res://new_features/Mammo-3D-Platformer/models/DoorAndButtons/Door_0.png"
+dest_files=["res://.godot/imported/Door_0.png-7e15e1b01b5dc95208bb0d1d7d241f02.s3tc.ctex"]
 
 [params]
 

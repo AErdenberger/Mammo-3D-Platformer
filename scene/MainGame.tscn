@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://em4bytrww7ct" path="res://new_features/Mammo-3D-Platformer/Sprites/flatLight24.png" id="9_hc5fe"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="11_25xka"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/DestructableWall.gd" id="12_qnp0x"]
-[ext_resource type="Texture2D" uid="uid://dht0iim6nne0u" path="res://new_features/Mammo-3D-Platformer/models/Destructable wall_0.png" id="13_dgj3s"]
+[ext_resource type="Texture2D" uid="uid://dht0iim6nne0u" path="res://new_features/Mammo-3D-Platformer/models/DoorAndButtons/Destructable wall_0.png" id="13_dgj3s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vinsd"]
 
@@ -102,6 +102,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
 [node name="BigPlatform9" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
 
+[node name="BigPlatform10" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011138, 0, -10)
+
+[node name="BigPlatform11" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98886, 0, -10)
+
+[node name="BigPlatform12" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01114, 0, -10)
+
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_hr6c3")
 target = NodePath("../NewPlayer")
@@ -112,6 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48861, 8.84115)
 [node name="NewPlayer" parent="." node_paths=PackedStringArray("view") instance=ExtResource("3_22apf")]
 view = NodePath("../View")
 shoot_speed = 40.0
+push_force = 1.0
 
 [node name="Coin" parent="." instance=ExtResource("4_eilxa")]
 
