@@ -7,6 +7,7 @@ signal coin_collected
 @export var coins := 0
 @export var bullet : PackedScene
 @export var shoot_speed : float
+@export var push_force : float
 
 var move_speed = 250
 var move_velocity: Vector3
@@ -43,6 +44,11 @@ func _physics_process(delta):
 	velocity = applied_velocity
 	move_and_slide()
 	handle_effects()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider() is RigidBody3D:
+			collision.get_collider().linear_velocity = applied_velocity * push_force
 
 	if position.y < -10:
 		get_tree().reload_current_scene()
