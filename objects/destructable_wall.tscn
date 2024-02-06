@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://cksxpj34xenry"]
+
+[ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/DestructableWall.gd" id="1_sxawe"]
+[ext_resource type="Texture2D" uid="uid://dht0iim6nne0u" path="res://new_features/Mammo-3D-Platformer/models/DoorAndButtons/Destructable wall_0.png" id="2_4d0m5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nog1b"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_4d0m5")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8vpjk"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1.00001, 1.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 2, 0, 0, 0, 4, 0, 5, 0, 2, 0, 3, 0, 6, 0, 1, 0, 3, 0, 7, 0, 6, 0, 1, 0, 4, 0, 0, 0, 1, 0, 6, 0, 4, 0, 5, 0, 3, 0, 2, 0, 5, 0, 7, 0, 3, 0),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 254, 255, 0, 0, 254, 255, 0, 0, 254, 255, 0, 0, 254, 255, 254, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 254, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_526jf"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1.00001, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 63, 255, 63, 0, 0, 255, 63, 255, 63, 255, 63, 0, 0, 0, 0, 0, 0, 255, 63, 255, 63, 0, 0, 255, 63, 255, 63, 255, 63, 255, 63, 0, 0, 0, 0, 255, 63, 0, 0, 0, 0, 255, 63, 0, 0, 0, 0, 0, 0, 255, 63, 255, 63, 0, 0, 255, 63, 255, 63, 0, 0, 0, 0, 0, 0, 255, 63, 255, 63, 0, 0, 255, 63, 0, 0, 0, 0, 0, 0, 255, 63, 255, 63, 0, 0, 255, 63, 255, 63),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 10, 0, 9, 0, 8, 0, 10, 0, 11, 0, 9, 0, 14, 0, 13, 0, 12, 0, 14, 0, 15, 0, 13, 0, 18, 0, 17, 0, 16, 0, 18, 0, 19, 0, 17, 0, 22, 0, 21, 0, 20, 0, 22, 0, 23, 0, 21, 0),
+"material": SubResource("StandardMaterial3D_nog1b"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 254, 255, 255, 191, 254, 255, 0, 0, 254, 255, 255, 191, 254, 255, 254, 255, 0, 0, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 254, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 254, 255, 254, 255, 254, 255, 255, 191, 254, 255, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 254, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 254, 255, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 254, 255, 254, 255, 254, 255, 255, 127, 0, 0, 254, 255, 254, 255, 255, 127, 254, 255, 0, 0, 254, 255, 255, 127, 0, 0, 0, 0, 254, 255, 255, 127, 254, 255, 254, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8vpjk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uy5qs"]
+
+[node name="DestructableWall" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14184, 0.56129, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_sxawe")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="Node" type="Node3D" parent="Model"]
+
+[node name="cuboid" type="MeshInstance3D" parent="Model/Node"]
+mesh = SubResource("ArrayMesh_526jf")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_uy5qs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
