@@ -192,9 +192,11 @@ environment = SubResource("Environment_t8tqb")
 
 [node name="DestructableWall" parent="." instance=ExtResource("12_43gue")]
 
-[node name="BarrierDoor" type="Node3D" parent="."]
+[node name="BarrierDoor" type="Node3D" parent="." node_paths=PackedStringArray("objects")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.847138, -12.4994)
 script = ExtResource("13_tca0c")
+dirScaleVector = Vector3(0.001, 0.001, 0.001)
+objects = [NodePath("RigidBody3D/cuboid"), NodePath("RigidBody3D/CollisionShape3D")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="BarrierDoor"]
 axis_lock_linear_x = true
