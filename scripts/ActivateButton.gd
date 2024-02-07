@@ -13,8 +13,10 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	target.openDoor = true
 	pass # Replace with function body.
 
 
 func _on_body_exited(body):
+	target.openDoor = false
 	pass # Replace with function body.

@@ -216,8 +216,9 @@ shape = SubResource("ConvexPolygonShape3D_8ghev")
 [node name="Button" parent="." instance=ExtResource("15_xu6ri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.04187, 0.504554, -9.97072)
 
-[node name="ActivateButton" type="Area3D" parent="Button"]
+[node name="ActivateButton" type="Area3D" parent="Button" node_paths=PackedStringArray("target")]
 script = ExtResource("16_mpar2")
+target = NodePath("../../BarrierDoor")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button/ActivateButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00619316, 0.408404, 0)
