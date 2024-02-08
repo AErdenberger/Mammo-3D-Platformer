@@ -121,6 +121,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01114, 0, -10)
 [node name="BigPlatform13" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022276, 0, -15.0061)
 
+[node name="BigPlatform14" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89753, 0, -10.0915)
+
+[node name="BigPlatform15" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.83196, 0, -15.1263)
+
+[node name="BigPlatform16" parent="Initial Platform" instance=ExtResource("1_xnmbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.83196, 0, -19.869)
+
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_hr6c3")
 target = NodePath("../NewPlayer")
@@ -225,6 +234,29 @@ target = NodePath("../../BarrierDoor")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button/ActivateButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00619316, 0.408404, 0)
 shape = SubResource("SphereShape3D_ur8f6")
+
+[node name="BarrierDoor2" type="Node3D" parent="." node_paths=PackedStringArray("objects")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92665, 0.847138, -12.4994)
+script = ExtResource("13_tca0c")
+dirScaleVector = Vector3(0.001, 0.001, 0.001)
+objects = [NodePath("RigidBody3D/cuboid"), NodePath("RigidBody3D/CollisionShape3D")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="BarrierDoor2"]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="cuboid" type="MeshInstance3D" parent="BarrierDoor2/RigidBody3D"]
+transform = Transform3D(4.49964, 0, 0, 0, 3.67969, 0, 0, 0, 1, -0.0343206, -0.341962, 0)
+mesh = SubResource("ArrayMesh_gagh2")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarrierDoor2/RigidBody3D"]
+transform = Transform3D(4.49964, 0, 0, 0, 3.67969, 0, 0, 0, 1, -0.0343206, -0.341962, 0)
+shape = SubResource("ConvexPolygonShape3D_8ghev")
 
 [connection signal="coin_collected" from="NewPlayer" to="HUD" method="_on_coin_collected"]
 [connection signal="move_dir" from="HUD/Movement" to="NewPlayer" method="_on_touch_move"]
