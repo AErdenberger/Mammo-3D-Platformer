@@ -55,7 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.847, -12.499)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000137985, -0.000400543)
 script = ExtResource("1_qd6b4")
 dirScaleVector = Vector3(0.001, 0.001, 0.001)
-objects = [NodePath(""), NodePath("")]
+objects = [NodePath("RigidBody3D/cuboid"), NodePath("RigidBody3D/CollisionShape3D")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="BarrierDoor"]
 axis_lock_linear_x = true

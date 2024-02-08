@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var target:Node3D
+@export var target:Array[Node3D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,10 +13,18 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	target.openDoor = true
+	for i in target.size():
+		if target[i].has_method("scaleControl"):
+			target[i].openDoor = true
+		elif target[i].get_child(0).has_method("scaleControl"):
+			target[i].get_child(0).openDoor = true
 	pass # Replace with function body.
 
 
 func _on_body_exited(body):
-	target.openDoor = false
+	for i in target.size():
+		if target[i].has_method("scaleControl"):
+			target[i].openDoor = false
+		elif target[i].get_child(0).has_method("scaleControl"):
+			target[i].get_child(0).openDoor = false
 	pass # Replace with function body.

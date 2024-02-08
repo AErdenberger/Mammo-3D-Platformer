@@ -23,3 +23,5 @@ func _process(delta):
 		for i in objects.size():
 			objects[i].scale = initScaleVector
 
+func scaleControl():
+	pass

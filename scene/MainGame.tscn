@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cnwcss0rtvhb"]
+[gd_scene load_steps=25 format=3 uid="uid://cnwcss0rtvhb"]
 
 [ext_resource type="PackedScene" uid="uid://devuygs2nhce5" path="res://new_features/Mammo-3D-Platformer/objects/Big_Platform.tscn" id="1_xnmbx"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/Camera.gd" id="2_hr6c3"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="11_25xka"]
 [ext_resource type="PackedScene" uid="uid://cksxpj34xenry" path="res://new_features/Mammo-3D-Platformer/objects/destructable_wall.tscn" id="12_43gue"]
 [ext_resource type="Texture2D" uid="uid://kffqygwthdq0" path="res://new_features/Mammo-3D-Platformer/models/DoorAndButtons/Door_0.png" id="13_4tdww"]
+[ext_resource type="PackedScene" uid="uid://b3i043vam0dnj" path="res://new_features/Mammo-3D-Platformer/scene/b_door.tscn" id="13_hdonv"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/BarrierDoor.gd" id="13_tca0c"]
 [ext_resource type="PackedScene" uid="uid://babs2yx6qtfho" path="res://new_features/Mammo-3D-Platformer/models/DoorAndButtons/Button.gltf" id="15_xu6ri"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/ActivateButton.gd" id="16_mpar2"]
@@ -30,6 +31,9 @@ ssao_enabled = true
 ssao_radius = 0.45
 ssao_intensity = 1.0
 ssao_power = 15.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ur8f6"]
+radius = 0.183858
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtbmm"]
 resource_name = "material_0"
@@ -75,9 +79,6 @@ shadow_mesh = SubResource("ArrayMesh_brwyi")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8ghev"]
 points = PackedVector3Array(-0.5, -8.29892e-15, -0.1875, -0.5, -8.29892e-15, 0.187499, -0.5, 1.06249, -0.1875, 0.499995, -8.29892e-15, -0.1875, 0.499995, -8.29892e-15, 0.187499, -0.5, 1.06249, 0.187499, 0.499995, 1.06249, -0.1875, 0.499995, 1.06249, 0.187499)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_ur8f6"]
-radius = 0.183858
 
 [node name="MainGame" type="Node3D"]
 
@@ -201,35 +202,14 @@ environment = SubResource("Environment_t8tqb")
 
 [node name="DestructableWall" parent="." instance=ExtResource("12_43gue")]
 
-[node name="BarrierDoor" type="Node3D" parent="." node_paths=PackedStringArray("objects")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.847138, -12.4994)
-script = ExtResource("13_tca0c")
-dirScaleVector = Vector3(0.001, 0.001, 0.001)
-objects = [NodePath("RigidBody3D/cuboid"), NodePath("RigidBody3D/CollisionShape3D")]
-
-[node name="RigidBody3D" type="RigidBody3D" parent="BarrierDoor"]
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-
-[node name="cuboid" type="MeshInstance3D" parent="BarrierDoor/RigidBody3D"]
-transform = Transform3D(4.49964, 0, 0, 0, 3.67969, 0, 0, 0, 1, -0.0343206, -0.341962, 0)
-mesh = SubResource("ArrayMesh_gagh2")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BarrierDoor/RigidBody3D"]
-transform = Transform3D(4.49964, 0, 0, 0, 3.67969, 0, 0, 0, 1, -0.0343206, -0.341962, 0)
-shape = SubResource("ConvexPolygonShape3D_8ghev")
+[node name="BDoor" parent="." instance=ExtResource("13_hdonv")]
 
 [node name="Button" parent="." instance=ExtResource("15_xu6ri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.04187, 0.504554, -9.97072)
 
 [node name="ActivateButton" type="Area3D" parent="Button" node_paths=PackedStringArray("target")]
 script = ExtResource("16_mpar2")
-target = NodePath("../../BarrierDoor")
+target = [NodePath("../../BDoor"), NodePath("../../BarrierDoor2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button/ActivateButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00619316, 0.408404, 0)
