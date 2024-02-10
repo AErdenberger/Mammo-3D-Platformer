@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cnwcss0rtvhb"]
+[gd_scene load_steps=31 format=3 uid="uid://cnwcss0rtvhb"]
 
 [ext_resource type="PackedScene" uid="uid://devuygs2nhce5" path="res://new_features/Mammo-3D-Platformer/objects/Big_Platform.tscn" id="1_xnmbx"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/Camera.gd" id="2_hr6c3"]
@@ -8,6 +8,7 @@
 [ext_resource type="LabelSettings" uid="uid://dklnvibo33llv" path="res://new_features/Mammo-3D-Platformer/label_settings/CoinLabelSettings.tres" id="6_3vayy"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/HUD.gd" id="6_bttjt"]
 [ext_resource type="Script" path="res://new_features/Mammo-3D-Platformer/scripts/Movement.gd" id="6_chnmx"]
+[ext_resource type="Texture2D" uid="uid://bs6puxrivhkk2" path="res://new_features/Mammo-3D-Platformer/Sprites/particle.png" id="6_wp1pu"]
 [ext_resource type="Texture2D" uid="uid://cr3s45p8o0u7k" path="res://new_features/Mammo-3D-Platformer/Sprites/flatDark00.png" id="7_56oki"]
 [ext_resource type="Texture2D" uid="uid://cnq0046qwjuiy" path="res://new_features/Mammo-3D-Platformer/Sprites/flatLight05.png" id="8_6wkef"]
 [ext_resource type="Texture2D" uid="uid://em4bytrww7ct" path="res://new_features/Mammo-3D-Platformer/Sprites/flatLight24.png" id="9_hc5fe"]
@@ -21,6 +22,19 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e1jig"]
 radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgj77"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_wp1pu")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_k34fx"]
+
+[sub_resource type="Curve" id="Curve_gc3f6"]
+_data = [Vector2(0, 0.010989), 0.0, 0.0, 0, 0, Vector2(0.495935, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vinsd"]
 
@@ -148,7 +162,7 @@ shoot_speed = 40.0
 push_force = 1.0
 
 [node name="Coin" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800987, 3.93143)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807895, 3.93143)
 script = ExtResource("4_ih87r")
 
 [node name="mesh" parent="Coin" instance=ExtResource("5_uxg15")]
@@ -156,6 +170,17 @@ script = ExtResource("4_ih87r")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Coin"]
 transform = Transform3D(0.127776, 0, 0, 0, 0.277595, 0, 0, 0, 0.292417, 0, 0.186084, 0)
 shape = SubResource("SphereShape3D_e1jig")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Coin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186864, 0)
+material_override = SubResource("StandardMaterial3D_cgj77")
+mesh = SubResource("QuadMesh_k34fx")
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_gc3f6")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("6_bttjt")
