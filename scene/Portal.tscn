@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://brjl32tt33c5e"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m7cx1"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.8
+gravity = Vector3(0, 0, 0)
+sub_emitter_mode = 1
+sub_emitter_frequency = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75a3d"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.0509804)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vp4tp"]
+material = SubResource("StandardMaterial3D_75a3d")
+radius = 0.125
+height = 0.125
+
+[node name="Portal" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="MainPartical" type="GPUParticles3D" parent="."]
+amount = 800
+process_material = SubResource("ParticleProcessMaterial_m7cx1")
+draw_pass_1 = SubResource("SphereMesh_vp4tp")
+
+[node name="SubPartical" type="GPUParticles3D" parent="."]
+sub_emitter = NodePath(".")
